@@ -1,0 +1,161 @@
+// -*- mode: jsonc -*-
+{
+    "name": "waybar",
+    "mode": "dock",
+    "layer": "top",
+    "position": "top",
+    "height": 38,
+    "spacing": 10, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "hyprland/submap",
+        "hyprland/language",
+        "wireplumber",
+        "backlight",
+        "idle_inhibitor",
+        "mpris"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "memory",
+        "cpu",
+        "temperature",
+        "battery",
+        "power-profiles-daemon",
+        "tray",
+        "clock",
+    ],
+    "hyprland/submap": {
+        "tooltip": false,
+        "always-on": true,
+        "default-submap": "󰣇"
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+        },
+        "persistent-workspaces": {
+            "*": [ 1, 2, 3, 4, 5, 6 ],
+        }
+    },
+    "idle_inhibitor": {
+        "tooltip": false,
+        "format": "<span rise='+2500'>{icon}</span>",
+        "format-icons": {
+            "activated": " ",
+            "deactivated": " "
+        }
+    },
+    "mpris": {
+        "format": "{player_icon} {dynamic}",
+        "dynamic-len": 30,
+        "format-paused": "{status_icon} {dynamic}",
+        "player-icons": {
+            "default": " ",
+        },
+        "status-icons": {
+            "paused": " "
+        },
+        "dynamic-order": [ "artist", "title", "album", "position", "length" ],
+    },
+    "hyprland/language": {
+        "min-length": 7,
+        "format": "{}",
+        "keyboard-name": "at-translated-set-2-keyboard",
+        "on-click": "bash ~/.config/waybar/widget-launchers/kbd_layout.sh"
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10,
+        "show-passive-items": true,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%H:%M %Y-%m-%d}",
+        "tooltip": false,
+        "calendar": {
+            "weeks-pos": "left",
+        },
+    },
+    "cpu": {
+        "min-length": 7,
+        "format": "{usage}% <span rise='+0000'></span>",
+        "tooltip": false,
+        "on-click": "bash ~/.config/waybar/widget-launchers/top.sh"
+    },
+    "memory": {
+        "tooltip": false,
+        "min-length": 7,
+        "format": "{}% ",
+        "on-click": "bash ~/.config/waybar/widget-launchers/top.sh"
+    },
+    "temperature": {
+        "min-length": 7,
+        "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C <span rise='+0000'>{icon}</span>",
+        "format-critical": "{temperatureC}°C {<span rise='-0250'>{icon}</span>",
+        "format-icons": ["", "", ""],
+        "tooltip": false,
+        "on-click": "bash ~/.config/waybar/widget-launchers/top.sh"
+    },
+    "backlight": {
+        "min-length": 7,
+        "device": "acpi_video1",
+        "format": "{percent}% <span rise='+1000'>{icon}</span>",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-scroll-up": "brightnessctl s 2%+",
+        "on-scroll-down": "brightnessctl s 2%-",
+        "tooltip": false
+    },
+    "battery": {
+        "tooltip": false,
+        "min-length": 8,
+        "interval": 1,
+        "states": {
+            "full": 100,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-full": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "bash ~/.config/waybar/widget-launchers/top.sh"
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip": false,
+        "max-length": 4,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": " ",
+        "power-saver": " "
+      }
+    },
+    "wireplumber": {
+        "tooltip": false,
+        "min-length": 8,
+        "format": "{volume}% <span rise='+0000'>{icon}</span>",
+        "format-muted": "  0%  ",
+        "states": {
+            "off": 0,
+            "low": 35,
+            "high": 75,
+        },
+        "format-icons": [ " ", " ", " "],
+        "on-click": "bash ~/.config/waybar/widget-launchers/audio.sh"
+    }
+}
+
