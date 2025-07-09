@@ -1,0 +1,346 @@
+/* @define-color background #1d2021; rgba(29, 32, 33, 1.0) */
+/* @define-color foreground #ebdbb2; rgba(235, 219, 178, 1.0) */
+/* @define-color selection_foreground #928374; rgba(146, 131, 116, 1.0) */
+/* @define-color selection_background #ebdbb2; rgba(235, 219, 178, 1.0) */
+/* @define-color black0: #665c54; rgba(102, 92, 84, 1.0) */
+/* @define-color black1: #7c6f64; rgba(124, 111, 100, 1.0) */
+/* @define-color red0: #cc241d; rgba(204, 36, 29, 1.0) */
+/* @define-color red1: #fb4934; rgba(251, 73, 52, 1.0) */
+/* @define-color green0: #98971a; rgba(152, 151, 26, 1.0) */
+/* @define-color green1: #b8bb26; rgba(184, 187, 28, 1.0) */
+/* @define-color yellow0: #d79921; rgba(215, 152, 33, 1.0) */
+/* @define-color yellow1: #fabd2f; rgba(250, 189, 47, 1.0) */
+/* @define-color blue0: #458588; rgba(69, 133, 136, 1.0) */
+/* @define-color blue1: #83a598; rgba(131, 165, 152, 1.0) */
+/* @define-color magenta0: #b16286; rgba(177, 98, 134, 1.0) */
+/* @define-color magenta1: #d3869b; rgba(211, 134, 155, 1.0) */
+/* @define-color cyan0: #689d6a; rgba(104, 157, 106, 1.0) */
+/* @define-color cyan1: #8ec07c; rgba(142, 192, 124, 1.0) */
+/* @define-color white0: #a89984; rgba(168, 152, 132, 1.0) */
+/* @define-color white1: #c2bfba; rgba(194, 191, 186, 1.0) */
+
+/* @define-color special_background #242729; rgba(36, 39, 41, 1.0) */
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+window#waybar {
+    background-color: rgba(36, 39, 41, 0.9);
+    border-bottom: 3px solid rgba(235, 219, 178, 0.3);
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+#submap {
+    color: #689d6a;
+    font-size: 22px;
+    min-width: 35px;
+    margin-left: 8px;
+    border-bottom: 3px solid rgba(251, 241, 199, 0.4);
+}
+
+#submap.󰩨 {
+    font-size: 20px;
+    color: #b16286;
+}
+
+#submap.󰝚 {
+    font-size: 20px;
+    color: #458588;
+}
+
+#submap. {
+    font-size: 18px;
+    color: #d79921;
+}
+
+#submap.⏻ {
+    color: #cc241d;
+}
+
+#language {
+    font-size: 13px;
+    color: #98971a;
+    border-bottom: 3px solid rgba(251, 241, 199, 0.4);
+    min-width: 16px;
+    padding: 0px 8px;
+}
+
+#language:hover {
+    border-bottom: 3px solid rgba(215, 152, 33, 1.0);
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#wireplumber {
+    padding-left: 6px;
+    font-size: 13px;
+    color: #458588;
+    border-bottom: 3px solid rgba(251, 241, 199, 0.4);
+}
+
+#wireplumber:hover {
+    border-bottom: 3px solid rgba(215, 152, 33, 1.0);
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#wireplumber.muted {
+    color: #cc241d;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#backlight {
+    padding-left: 4px;
+    padding-right: 6px;
+    font-size: 13px;
+    color: #d79921;
+    border-bottom: 3px solid rgba(251, 241, 199, 0.4);
+}
+
+#mpris {
+    font-size: 13px;
+    color: #98971a;
+    padding: 0px 4px 0px 7px;
+    border-bottom: 3px solid rgba(251, 241, 199, 0.4);
+}
+
+#workspaces {
+    padding: 0px 5px;
+}
+
+#workspaces button {
+    all: unset;
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #689d6a;
+    padding: 0px 10px;
+    border-bottom: 3px solid rgba(251, 241, 199, 0.4);
+}
+
+#workspaces button:hover {
+    color: #d79821;
+    border-bottom: 3px solid rgba(215, 152, 33, 1.0);
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#workspaces button.active {
+    color: #d3869b;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#workspaces button.active:hover {
+    color: #d3869b;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+#workspaces button.urgent {
+    color: #cc241d;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#memory {
+    padding: 0px 4px;
+    font-size: 13px;
+    min-width: 50px;
+    color: #fabd2f;
+    border-bottom: 3px solid rgba(251, 241, 199, 0.4);
+}
+
+#memory:hover {
+    border-bottom: 3px solid rgba(215, 152, 33, 1.0);
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#cpu {
+    padding: 0px 4px;
+    font-size: 13px;
+    min-width: 50px;
+    color: #689d6a;
+    border-bottom: 3px solid rgba(251, 241, 199, 0.4);
+}
+
+#cpu:hover {
+    border-bottom: 3px solid rgba(215, 152, 33, 1.0);
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#temperature {
+    padding: 0px 4px;
+    font-size: 13px;
+    min-width: 50px;
+    color: #458588;
+    border-bottom: 3px solid rgba(251, 241, 199, 0.4);
+}
+
+#temperature:hover {
+    border-bottom: 3px solid rgba(215, 152, 33, 1.0);
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#temperature.critical {
+    color: #cc241d;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#battery {
+    font-size: 14px;
+    min-width: 60px;
+    border-bottom: 3px solid rgba(251, 241, 199, 0.4);
+}
+
+#battery:hover {
+    border-bottom: 3px solid rgba(215, 152, 33, 1.0);
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#battery.full {
+    color: #98971a;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#battery.warning {
+    color: #d79921;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#battery.critical {
+    color: #cc241d;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#power-profiles-daemon {
+    padding-left: 6px;
+    padding-right: 2px;
+    font-size: 14px;
+    min-width: 22px;
+    border-bottom: 3px solid rgba(251, 241, 199, 0.4);
+}
+
+#power-profiles-daemon:hover {
+    border-bottom: 3px solid rgba(215, 152, 33, 1.0);
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#power-profiles-daemon.performance {
+    color: #cc241d;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#power-profiles-daemon.balanced {
+    color: #458588;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#power-profiles-daemon.power-saver {
+    color: #98971a;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#tray {
+}
+
+#tray menu {
+}
+
+#tray > .passive { /* icons with status 'Passive' */
+    border-bottom: 3px solid rgba(152, 151, 26, 1.0);
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#tray > .passive:hover {
+    border-bottom: 3px solid rgba(215, 152, 33, 1.0);
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#tray > .active { /* icons with status 'Active' */
+    border-bottom: 3px solid rgba(69, 133, 136, 1.0);
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#tray > .active:hover {
+    border-bottom: 3px solid rgba(215, 152, 33, 1.0);
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#tray > .needs-attention { /* icons with status 'NeedsAttention' */
+    border-bottom: 3px solid rgba(204, 36, 29, 1.0);
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#tray > .needs-attention:hover {
+    border-bottom: 3px solid rgba(215, 152, 33, 1.0);
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#clock {
+    padding-right: 4px;
+    font-size: 14px;
+    min-width: 125px;
+    color: #689d6a;
+    border-bottom: 3px solid rgba(251, 241, 199, 0.4);
+    margin-right: 8px;
+}
+
+#idle_inhibitor {
+    padding-left: 6px;
+    padding-right: 4px;
+    font-size: 13px;
+    border-bottom: 3px solid rgba(251, 241, 199, 0.4);
+}
+
+#idle_inhibitor:hover {
+    border-bottom: 3px solid rgba(215, 152, 33, 1.0);
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#idle_inhibitor.activated {
+    color: #cc241d;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#idle_inhibitor.deactivated {
+    color: #689d6a;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+tooltip {
+    border-radius: 8px;
+    background-color: #1d2021;
+    border: 2px solid rgba(251, 241, 199, 0.8);
+}
+
+tooltip label {
+    font-size: 14px;
+    color: #ebdbb2;
+}
+
