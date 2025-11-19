@@ -53,6 +53,8 @@ return {
         -- [ language specific configurations ]
         require('sct_lazy.plugins.langs.lua').lsp_setup()
         require('sct_lazy.plugins.langs.rust').lsp_setup()
+        require('sct_lazy.plugins.langs.csharp').lsp_setup()
+        require('sct_lazy.plugins.langs.webdev').lsp_setup()
 
         -- [ create autocmds ]
         require('sct_lazy.autocmd').plugins.lsp()

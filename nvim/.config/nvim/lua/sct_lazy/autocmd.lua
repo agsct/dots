@@ -28,6 +28,21 @@ return {
                     require('sct_lazy.maps').autocmd.lsp_attach()
                 end
             })
+        end,
+
+        tree_sitter = function()
+            autocmd('FileType', {
+                desc = 'Fold code',
+                group = sct_group,
+                callback = function()
+                    if require('nvim-treesitter.parsers').has_parser() then
+                        vim.opt.foldmethod = "expr"
+                        vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+                    else
+                        vim.opt.foldmethod = "syntax"
+                    end
+                end
+            })
         end
     }
 }

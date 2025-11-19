@@ -14,10 +14,8 @@ return {
         local ui = require('dapui')
 
         -- general init setup
+        dap.set_log_level('TRACE')
         ui.setup()
-
-        -- lang specific init setup
-        require('sct_lazy.plugins.langs.rust').dap_setup()
 
         -- keymaps
         require('sct_lazy.maps').plugins.dap()

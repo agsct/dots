@@ -17,22 +17,24 @@ end
 return {
     vanilla = function()
         -- basic
-        vim.keymap.set('n', '<leader>dk', vim.diagnostic.goto_prev, { desc = 'go to previous [D]iagnostic message' })
-        vim.keymap.set('n', '<leader>dj', vim.diagnostic.goto_next, { desc = 'go to next [D]iagnostic message' })
-        vim.keymap.set('n', '<leader>de', vim.diagnostic.open_float, { desc = 'show diagnostic [E]rror messages' })
-        vim.keymap.set('n', '<leader>dq', vim.diagnostic.setloclist, { desc = 'open diagnostic [Q]uickfix list' })
-
         vim.keymap.set('n', '<left>', '<Nop>')
         vim.keymap.set('n', '<right>', '<Nop>')
         vim.keymap.set('n', '<up>', '<Nop>')
         vim.keymap.set('n', '<down>', '<Nop>')
 
         -- leader-based
+        vim.keymap.set('n', '<leader>dk', vim.diagnostic.goto_prev, { desc = 'go to previous [D]iagnostic message' })
+        vim.keymap.set('n', '<leader>dj', vim.diagnostic.goto_next, { desc = 'go to next [D]iagnostic message' })
+        vim.keymap.set('n', '<leader>de', vim.diagnostic.open_float, { desc = 'show diagnostic [E]rror messages' })
+        vim.keymap.set('n', '<leader>dq', vim.diagnostic.setloclist, { desc = 'open diagnostic [Q]uickfix list' })
+
         vim.keymap.set('n', '<leader>ee', vim.cmd.Ex, { desc = 'open explorer' })
         vim.keymap.set('n', '<leader>es', vim.cmd.Hex, { desc = 'open explorer in split' })
         vim.keymap.set('n', '<leader>ev', vim.cmd.Vex, { desc = 'open explorer in vertical split' })
 
         vim.keymap.set('n', '<leader>mc', '0i- [ ] <esc>j0', { desc = '[m]ake [c]heckbox' })
+
+        vim.keymap.set('n', '<leader>zz', function() vim.opt.foldenable = not vim.opt.foldenable end, { desc = 'toggle folding' })
     end,
 
     autocmd = {
@@ -86,6 +88,7 @@ return {
             vim.keymap.set('n', '<leader>dh', dap.step_out, { desc = '[d]ap step out' })
             vim.keymap.set('n', '<leader>dk', dap.step_back, { desc = '[d]ap step back' })
             vim.keymap.set('n', '<leader>dr', dap.restart, { desc = '[d]ap restart' })
+            vim.keymap.set('n', '<leader>ds', '<Cmd>lua require"dap".disconnect({ terminateDebuggee = true })<CR><Cmd>lua require"dap".close()<CR>', { desc = '[d]ap stop' })
         end,
 
         fugitive = function()

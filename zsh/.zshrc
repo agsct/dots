@@ -46,7 +46,7 @@ compinit
 # Lines configured by chrisott0
 export LS_COLORS="$(vivid generate gruvbox-dark-hard)"
 export EDITOR=nvim
-export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.cargo/bin:$HOME/.dotnet:$HOME/.dotnet/tools
 
 alias ls='ls -a --color'
 

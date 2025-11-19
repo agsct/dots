@@ -147,6 +147,9 @@ for d in ${user_dirs[@]}; do
 	fi
 done
 
+# basic groups
+groupadder "disk"
+
 # zsh
 if [[ ! "$SHELL" == *"zsh"* ]]; then
 	log "changing default shell for user: $USER"

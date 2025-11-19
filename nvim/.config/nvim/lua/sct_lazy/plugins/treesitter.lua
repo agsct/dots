@@ -7,11 +7,14 @@ return {
             ensure_installed = {
                 require('sct_lazy.plugins.langs.lua').ts_ensure_list(),
                 require('sct_lazy.plugins.langs.rust').ts_ensure_list(),
+                require('sct_lazy.plugins.langs.csharp').ts_ensure_list(),
+                require('sct_lazy.plugins.langs.webdev').ts_ensure_list(),
             },
             highlight = {
                 enable = true,
             },
             indent = { enable = true },
         })
+        require('sct_lazy.autocmd').plugins.tree_sitter()
     end,
 }
